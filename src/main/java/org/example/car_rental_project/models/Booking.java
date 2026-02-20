@@ -7,8 +7,8 @@ public class Booking {
 
     private String startDate;
     private String endDate;
-    private double totalCost;
-    private boolean confirmed;
+    private Double totalCost;
+    private Boolean confirmed;
 
 
     public String getStartDate() { return startDate; }
@@ -19,11 +19,11 @@ public class Booking {
 
     public void setEndDate(String endDate) { this.endDate = endDate; }
 
-    public double getTotalCost() { return totalCost; }
+    public Double getTotalCost() { return totalCost; }
 
-    public void setTotalCost(double totalCost) { this.totalCost = totalCost; }
+    public void setTotalCost(Double totalCost) { this.totalCost = totalCost; }
 
-    public boolean getConfirmed() { return confirmed; }
+    public Boolean getConfirmed() { return confirmed; }
 
-    public void setConfirmed(boolean confirmed) { this.confirmed = confirmed; }
+    public void setConfirmed(Boolean confirmed) { this.confirmed = confirmed; }
 }
