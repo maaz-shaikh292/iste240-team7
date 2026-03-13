@@ -1,8 +1,7 @@
 package org.example.car_rental_project.models;
 
-import org.springframework.stereotype.Component;
+//Maaz Shaikh, UID-421007607
 
-@Component
 public class Booking {
 
     private String startDate;
@@ -10,6 +9,15 @@ public class Booking {
     private Double totalCost;
     private Boolean confirmed;
 
+    private Customer customer;
+
+    public Booking(String startDate, String endDate, Double totalCost, Boolean confirmed, Customer customer) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.totalCost = totalCost;
+        this.confirmed = confirmed;
+        this.customer = customer;
+    }
 
     public String getStartDate() { return startDate; }
 
@@ -26,4 +34,8 @@ public class Booking {
     public Boolean getConfirmed() { return confirmed; }
 
     public void setConfirmed(Boolean confirmed) { this.confirmed = confirmed; }
+
+    public Customer getCustomer() { return customer; }
+
+    public void setCustomer(Customer customer) { this.customer = customer; }
 }
