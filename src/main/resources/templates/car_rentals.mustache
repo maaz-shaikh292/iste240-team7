@@ -1,0 +1,38 @@
+<!--Amir 754006884 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Car Rental Lists  </title>
+</head>
+<body>
+<h1> Available Cars </h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Car</th>
+        <th>Model</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {{#cars}}
+        <tr>
+            <td>{{brand}}</td>
+            <td>{{model}}</td>
+            <td>{{price}}</td>
+        </tr>
+    {{/cars}}
+
+    </tbody>
+
+</table>
+
+ <a href="/">Back to Home</a>
+
+
+</body>
+</html>
