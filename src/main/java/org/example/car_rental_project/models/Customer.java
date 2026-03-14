@@ -1,14 +1,20 @@
 package org.example.car_rental_project.models;
 
-import org.springframework.stereotype.Component;
+//Maaz Shaikh, UID-421007607
 
-@Component
 public class Customer {
 
     private String username;
     private String password;
     private String email;
     private String licenseNumber;
+
+    public Customer(String username, String password, String email, String licenseNumber) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.licenseNumber = licenseNumber;
+    }
 
     public String getUsername(){return username;}
 
@@ -25,6 +31,5 @@ public class Customer {
     public String getLicenseNumber(){return licenseNumber;}
 
     public void setLicenseNumber(String licenseNumber){this.licenseNumber = licenseNumber;}
-
 
 }

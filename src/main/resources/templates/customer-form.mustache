@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Customer</title>
+</head>
+<body>
+    <h1>Register a New Customer</h1>
+    <form action="/customers/add" method="post">
+        <label>Username:</label>
+        <input type="text" name="username" required><br><br>
+
+        <label>Password:</label>
+        <input type="password" name="password" required><br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required><br><br>
+
+        <label>License Number:</label>
+        <input type="text" name="licenseNumber" required><br><br>
+
+        <button type="submit">Submit Customer</button>
+    </form>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

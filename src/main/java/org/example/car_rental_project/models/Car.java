@@ -2,7 +2,7 @@ package org.example.car_rental_project.models;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class Car {
 
     private String brand;
@@ -32,5 +32,11 @@ public class Car {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public Car(String brand, String model, Integer price) {
+        this.brand = brand;
+        this.model = model;
+        this.price = price;
     }
 }
