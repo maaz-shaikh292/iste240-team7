@@ -2,11 +2,16 @@ package org.example.car_rental_project.models;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class Review {
 
     private Integer rating;
     private String description;
+
+    public Review(Integer rating, String description) {
+        this.rating = rating;
+        this.description = description;
+    }
 
     public Integer getRating() {
         return rating;
@@ -23,5 +28,7 @@ public class Review {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 
 }

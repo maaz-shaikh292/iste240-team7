@@ -1,0 +1,27 @@
+<!--Alexander Ougnitch - 759002953-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Reviews</title>
+</head>
+<body>
+<h1>All Customer Reviews</h1>
+<table border="1">
+
+    <thead>
+    <tr>
+        <th>rating</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>{{#reviews}}<tr>
+        <td>{{rating}}</td>
+        <td>{{Description}}</td>
+    </tr>
+    {{/reviews}} </tbody>
+</table>
+<br>
+<a href="/">Back to Home</a> </body>
+</html>

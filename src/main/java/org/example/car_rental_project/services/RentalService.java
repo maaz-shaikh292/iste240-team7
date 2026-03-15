@@ -7,6 +7,7 @@ package org.example.car_rental_project.services;
 import org.example.car_rental_project.models.Booking;
 import org.example.car_rental_project.models.Car;
 import org.example.car_rental_project.models.Customer;
+import org.example.car_rental_project.models.Review;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class RentalService {
 
     private List<Customer> customers = new ArrayList<>();
     private List<Booking> bookings = new ArrayList<>();
+    private List<Review> reviews = new ArrayList<>();
     private List<Car> cars = new ArrayList<>();
 
 
@@ -35,6 +37,17 @@ public class RentalService {
 
         Booking sampleBooking = new Booking("2026-03-15", "2026-03-20", 550.00, true, sampleCustomer);
         bookings.add(sampleBooking);
+
+        Review demoReview = new Review( 5 , "it was a great experience");
+        reviews.add(demoReview);
+    }
+
+    public List<Review> getAllReviews() {
+        return reviews;
+    }
+
+    public void addReview(Review review) {
+        reviews.add(review);
     }
 
     // Amir - Listing all the cars
@@ -63,6 +76,8 @@ public class RentalService {
         }
         return null;
     }
+
+
 
     public List<Booking> getAllBookings() {
         return bookings;
