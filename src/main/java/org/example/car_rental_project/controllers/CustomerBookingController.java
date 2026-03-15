@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class CustomerBookingController {
 
@@ -19,6 +21,7 @@ public class CustomerBookingController {
     public CustomerBookingController(RentalService rentalService) {
         this.rentalService = rentalService;
     }
+
 
     @GetMapping("/customers")
     public String showCustomers(Model model) {
@@ -65,8 +68,5 @@ public class CustomerBookingController {
         return "redirect:/add/success/booking";
     }
 
-    @GetMapping("/add/success/{type}")
-    public String showSuccess() {
-        return "success";
-    }
+
 }
