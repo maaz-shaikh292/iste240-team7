@@ -22,6 +22,9 @@ public class Car {
     private Integer price;
 
 
+
+
+
     public Long getId() {
         return id;
     }
@@ -54,6 +57,8 @@ public class Car {
         this.brand = brand;
     }
 
+
+
     public Car (){
     };
 
@@ -61,5 +66,6 @@ public class Car {
         this.brand = brand;
         this.model = model;
         this.price = price;
+
     }
 }

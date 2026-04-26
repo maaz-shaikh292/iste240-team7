@@ -43,12 +43,19 @@ public class CarApiController {
     // POST create new car
     @PostMapping
     public ResponseEntity<Car> create(@RequestBody Car car) {
+        if (car.getPrice() == null || car.getPrice() < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(carService.save(car));
     }
+
 
     // PUT full update
     @PutMapping("/{id}")
     public ResponseEntity<Car> update(@PathVariable Long id, @RequestBody Car car) {
+        if (car.getPrice() == null || car.getPrice() < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
         car.setId(id);
         return ResponseEntity.ok(carService.save(car));
     }
@@ -56,6 +63,9 @@ public class CarApiController {
     // PUT update price only
     @PutMapping("/{id}/price")
     public ResponseEntity<Void> updatePrice(@PathVariable Long id, @RequestParam Integer price) {
+        if (price == null || price < 0) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
         carService.updatePrice(id, price);
         return ResponseEntity.ok().build();
     }
