@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+
+    <link rel="stylesheet" href="/webjars/semantic-ui-css/2.4.0/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<div class="ui container" style="margin-top: 40px;">
+
+    <h1 class="ui header">Reviews</h1>
+
+    <!-- Searching html -->
+    <div class="ui form">
+        <div class="field">
+            <label>Search by Rating</label>
+            <select id="searchRating" class="ui dropdown">
+                <option value="">All Ratings</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <button class="ui primary button" onclick="searchReviews()">Search</button>
+        <button class="ui button" onclick="loadReviews()">Show All</button>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <!-- add review html -->
+    <h3 class="ui header">Add Review</h3>
+
+    <div class="ui form">
+        <div class="field">
+            <label>Rating</label>
+            <select id="rating" class="ui dropdown" required>
+                <option value="">Select Rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Description</label>
+            <input type="text" id="description">
+        </div>
+
+        <button class="ui green button" type="button" onclick="saveReview()">Save</button>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <!-- reviews table html -->
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Rating</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody id="reviewsTable">
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+
+<!--  loading reviews into table    -->
+    function loadReviews() {
+        $.get("/api/reviews", function(reviews) {
+
+            let rows = "";
+
+            for (let i = 0; i < reviews.length; i++) {
+                rows += "<tr>";
+                rows += "<td>" + reviews[i].id + "</td>";
+                rows += "<td>" + reviews[i].rating + "</td>";
+                rows += "<td>" + reviews[i].description + "</td>";
+                rows += "<td><button class='ui red button' onclick='deleteReview(" + reviews[i].id + ")'>Delete</button></td>";
+                rows += "</tr>";
+            }
+
+            $("#reviewsTable").html(rows);
+        });
+    }
+
+    // searching for reviews filter
+    function searchReviews() {
+        let rating = $("#searchRating").val();
+
+        if (rating == "") {
+            loadReviews();
+        } else {
+            $.get("/api/reviews/rating/" + rating, function(reviews) {
+
+                let rows = "";
+
+                for (let i = 0; i < reviews.length; i++) {
+                    rows += "<tr>";
+                    rows += "<td>" + reviews[i].id + "</td>";
+                    rows += "<td>" + reviews[i].rating + "</td>";
+                    rows += "<td>" + reviews[i].description + "</td>";
+                    rows += "<td><button class='ui red button' onclick='deleteReview(" + reviews[i].id + ")'>Delete</button></td>";
+                    rows += "</tr>";
+                }
+
+                $("#reviewsTable").html(rows);
+            });
+        }
+    }
+
+    // saving reviewss
+    function saveReview() {
+        let review = {
+            rating: $("#rating").val(),
+            description: $("#description").val()
+        };
+
+        $.ajax({
+            url: "/api/reviews",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(review),
+            success: function() {
+                $("#rating").val("");
+                $("#description").val("");
+                loadReviews();
+            }
+        });
+    }
+
+    // deleting reviews
+    function deleteReview(id) {
+        $.ajax({
+            url: "/api/reviews/" + id,
+            type: "DELETE",
+            success: function() {
+                loadReviews();
+            }
+        });
+    }
+
+    loadReviews();
+
+</script>
+
+</body>
+</html>
