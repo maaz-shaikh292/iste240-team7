@@ -1,23 +1,46 @@
+// Maaz Shaikh - 421007607
 package org.example.car_rental_project.models;
 
-//Maaz Shaikh, UID-421007607
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "Booking")
 public class Booking {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "startDate", nullable = false)
     private String startDate;
+
+    @Column(name = "endDate", nullable = false)
     private String endDate;
+
+    @Column(name = "totalCost", nullable = false)
     private Double totalCost;
+
+    @Column(name = "confirmed")
     private Boolean confirmed;
 
-    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer linkedCustomer;
 
-    public Booking(String startDate, String endDate, Double totalCost, Boolean confirmed, Customer customer) {
+    public Booking() {}
+
+    public Booking(String startDate, String endDate, Double totalCost, Boolean confirmed, Customer linkedCustomer) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalCost = totalCost;
         this.confirmed = confirmed;
-        this.customer = customer;
+        this.linkedCustomer = linkedCustomer;
     }
+
+    // Getters and Setters
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
 
     public String getStartDate() { return startDate; }
 
@@ -35,7 +58,7 @@ public class Booking {
 
     public void setConfirmed(Boolean confirmed) { this.confirmed = confirmed; }
 
-    public Customer getCustomer() { return customer; }
+    public Customer getLinkedCustomer() { return linkedCustomer; }
 
-    public void setCustomer(Customer customer) { this.customer = customer; }
+    public void setLinkedCustomer(Customer linkedCustomer) { this.linkedCustomer = linkedCustomer; }
 }
