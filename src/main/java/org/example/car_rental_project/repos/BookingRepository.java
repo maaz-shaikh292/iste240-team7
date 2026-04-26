@@ -1,5 +1,5 @@
 // Maaz Shaikh - 421007607
-package org.example.car_rental_project.repositories;
+package org.example.car_rental_project.repos;
 
 import org.example.car_rental_project.models.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;

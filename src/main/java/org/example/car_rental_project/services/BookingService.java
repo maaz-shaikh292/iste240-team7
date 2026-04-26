@@ -2,7 +2,7 @@
 package org.example.car_rental_project.services;
 
 import org.example.car_rental_project.models.Booking;
-import org.example.car_rental_project.repositories.BookingRepository;
+import org.example.car_rental_project.repos.BookingRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
