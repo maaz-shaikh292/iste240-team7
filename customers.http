@@ -1,0 +1,30 @@
+### Get All Customers
+GET http://localhost:8080/api/customers
+
+### Add Customer 1
+POST http://localhost:8080/api/customers
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "password": "pass123",
+  "email": "john@email.com",
+  "licenseNumber": "LIC-001"
+}
+
+### Add Customer 2
+POST http://localhost:8080/api/customers
+Content-Type: application/json
+
+{
+  "username": "jane_smith",
+  "password": "pass456",
+  "email": "jane@email.com",
+  "licenseNumber": "LIC-002"
+}
+
+### Search Customer
+GET http://localhost:8080/api/customers/search?username=john
+
+### Delete Customer
+DELETE http://localhost:8080/api/customers/1

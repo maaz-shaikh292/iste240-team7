@@ -1,0 +1,32 @@
+### Get All Bookings
+GET http://localhost:8080/api/bookings
+
+### Add Booking 1
+POST http://localhost:8080/api/bookings
+Content-Type: application/json
+
+{
+  "startDate": "2025-05-01",
+  "endDate": "2025-05-05",
+  "totalCost": 250.00,
+  "confirmed": true,
+  "linkedCustomer": { "id": 1 }
+}
+
+### Add Booking 2
+POST http://localhost:8080/api/bookings
+Content-Type: application/json
+
+{
+  "startDate": "2025-06-10",
+  "endDate": "2025-06-15",
+  "totalCost": 400.00,
+  "confirmed": false,
+  "linkedCustomer": { "id": 2 }
+}
+
+### Search Booking by username
+GET http://localhost:8080/api/bookings/search?username=john_doe
+
+### Delete Booking
+DELETE http://localhost:8080/api/bookings/1
