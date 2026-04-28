@@ -23,7 +23,7 @@ public class Booking {
     @Column(name = "confirmed")
     private Boolean confirmed;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer linkedCustomer;
 

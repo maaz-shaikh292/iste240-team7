@@ -3,6 +3,9 @@ package org.example.car_rental_project.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "Customer")
 public class Customer {
@@ -23,6 +26,11 @@ public class Customer {
     @Column(name = "licenseNumber", length = 20, nullable = false)
     private String licenseNumber;
 
+    @OneToMany (mappedBy = "linkedCustomer", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY )
+    private List<Booking> bookings = new ArrayList<Booking>();
+
+
+
     public Customer() {}
 
     public Customer(String username, String password, String email, String licenseNumber) {
@@ -31,6 +39,7 @@ public class Customer {
         this.email = email;
         this.licenseNumber = licenseNumber;
     }
+
 
 
     public Long getId() { return id; }
@@ -52,4 +61,12 @@ public class Customer {
     public String getLicenseNumber() { return licenseNumber; }
 
     public void setLicenseNumber(String licenseNumber) { this.licenseNumber = licenseNumber; }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
 }
