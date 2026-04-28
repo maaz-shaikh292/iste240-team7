@@ -2,32 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Rental System</title>
+
+    <link rel="stylesheet" href="/webjars/semantic-ui-css/2.4.0/semantic.min.css">
 </head>
+
 <body>
 
-<h1>Car Rental Backend</h1>
-<p>In this project, we provide access for clients to book the car they want from an extensive list of cars.</p>
-<p>Detailed information for each car is provided across our three types of vehicles.</p>
+<div class="ui container" style="margin-top: 40px;">
 
-<hr> <h2>Management Dashboard</h2>
+    <!-- Header -->
+    <h1 class="ui center aligned header">
+        <i class="car icon"></i>
+        <div class="content">
+            Car Rental System
+            <div class="sub header">Backend Management Dashboard</div>
+        </div>
+    </h1>
 
-<h3>Car List</h3>
-<ul>
-    <li><a href="cars.html">View All Cars</a></li>
-</ul>
-<h3>Customers</h3>
-<ul>
-    <li><a href="customers.html">View All Cars</a></li>
-</ul>
-<h3>Bookings</h3>
-<ul>
-    <li><a href="bookings.html">View All Cars</a></li>
-</ul>
-<h3>Reviews</h3>
-<ul>
-    <li><a href="reviews.html">View All Cars</a></li>
-</ul>
+    <div class="ui divider"></div>
+
+    <!-- Description -->
+    <div class="ui segment">
+        <p>
+            This system allows clients to book cars from an extensive selection of available vehicles.
+            Each vehicle includes detailed information across multiple categories.
+        </p>
+    </div>
+
+    <h2 class="ui header">Management Dashboard</h2>
+
+    <!-- Cards -->
+    <div class="ui four stackable cards">
+
+        <div class="card">
+            <div class="content">
+                <i class="car icon"></i>
+                <div class="header">Cars</div>
+                <div class="description">View and manage all available cars.</div>
+            </div>
+            <div class="extra content">
+                <a href="cars.html" class="ui primary button fluid">View Cars</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="content">
+                <i class="users icon"></i>
+                <div class="header">Customers</div>
+                <div class="description">Manage customer information.</div>
+            </div>
+            <div class="extra content">
+                <a href="customers.html" class="ui primary button fluid">View Customers</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="content">
+                <i class="calendar check icon"></i>
+                <div class="header">Bookings</div>
+                <div class="description">Track and manage bookings.</div>
+            </div>
+            <div class="extra content">
+                <a href="bookings.html" class="ui primary button fluid">View Bookings</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="content">
+                <i class="star icon"></i>
+                <div class="header">Reviews</div>
+                <div class="description">View and manage user reviews.</div>
+            </div>
+            <div class="extra content">
+                <a href="reviews.html" class="ui primary button fluid">View Reviews</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
